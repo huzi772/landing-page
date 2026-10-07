@@ -1,4 +1,5 @@
 import { Navbar } from "@/components/layout/Navbar";
+import { Hero } from "@/components/sections/Hero";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import {
@@ -27,6 +28,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)]">
       <Navbar />
+      <Hero />
 
       <main className="py-12">
         <Container className="space-y-16">
@@ -35,9 +37,9 @@ export default function Home() {
             <span className="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-[var(--gold-muted)] text-[var(--gold)] border border-[var(--gold)]/20 mb-3">
               TEMPORARY DESIGN SYSTEM SHOWCASE
             </span>
-            <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
               Visual Design Foundation
-            </h1>
+            </h2>
             <p className="mt-2 text-[var(--text-secondary)] text-base max-w-2xl">
               Centralized design tokens, typography scale, reusable UI components, and color palette for the trading platform.
             </p>
@@ -46,7 +48,7 @@ export default function Home() {
           {/* 1. Color System Swatches */}
           <section className="space-y-6">
             <div className="border-l-2 border-[var(--accent)] pl-4">
-              <h2 className="text-2xl font-semibold tracking-tight">1. Color Palette Tokens</h2>
+              <h3 className="text-2xl font-semibold tracking-tight">1. Color Palette Tokens</h3>
               <p className="text-sm text-[var(--text-secondary)]">Semantic CSS Custom Properties</p>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
@@ -71,7 +73,7 @@ export default function Home() {
           {/* 2. Typography Scale */}
           <section className="space-y-6">
             <div className="border-l-2 border-[var(--accent)] pl-4">
-              <h2 className="text-2xl font-semibold tracking-tight">2. Typography Hierarchy</h2>
+              <h3 className="text-2xl font-semibold tracking-tight">2. Typography Hierarchy</h3>
               <p className="text-sm text-[var(--text-secondary)]">Geist Sans font system with high mobile readability</p>
             </div>
             <div className="space-y-6 p-6 rounded-xl bg-[var(--bg-secondary)] border border-[var(--border)]">
@@ -82,7 +84,7 @@ export default function Home() {
                 </p>
               </div>
               <div>
-                <span className="text-xs text-[var(--text-muted)] font-mono block mb-1">H1 Heading (2xl to 4xl)</span>
+                <span className="text-xs text-[var(--text-muted)] font-mono block mb-1">H1 Heading Example</span>
                 <p className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight">
                   Precision Market Intelligence
                 </p>
@@ -117,7 +119,7 @@ export default function Home() {
           {/* 3. Button Foundation */}
           <section className="space-y-6">
             <div className="border-l-2 border-[var(--accent)] pl-4">
-              <h2 className="text-2xl font-semibold tracking-tight">3. Button Variants & States</h2>
+              <h3 className="text-2xl font-semibold tracking-tight">3. Button Variants & States</h3>
               <p className="text-sm text-[var(--text-secondary)]">Accessible contrast, minimum 44px touch targets on mobile</p>
             </div>
 
@@ -197,13 +199,13 @@ export default function Home() {
           </section>
 
           {/* 4. Card Foundation */}
-          <section className="space-y-6" id="contact">
+          <section className="space-y-6" id="services">
             <div className="border-l-2 border-[var(--accent)] pl-4">
-              <h2 className="text-2xl font-semibold tracking-tight">4. Card Components</h2>
+              <h3 className="text-2xl font-semibold tracking-tight">4. Card Components</h3>
               <p className="text-sm text-[var(--text-secondary)]">Subtle dark backgrounds with optional hover states</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6" id="contact">
               <Card hoverable>
                 <CardHeader>
                   <div className="flex items-center justify-between">
