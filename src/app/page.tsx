@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Hero } from "@/components/sections/Hero";
+import { ValueProposition } from "@/components/sections/ValueProposition";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import {
@@ -29,6 +30,7 @@ export default function Home() {
     <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)]">
       <Navbar />
       <Hero />
+      <ValueProposition />
 
       <main className="py-12">
         <Container className="space-y-16">
