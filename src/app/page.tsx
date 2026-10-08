@@ -5,6 +5,7 @@ import { Services } from "@/components/sections/Services";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { MarketOverview } from "@/components/sections/MarketOverview";
 import { FAQ } from "@/components/sections/FAQ";
+import { FinalCTA } from "@/components/sections/FinalCTA";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import {
@@ -39,6 +40,7 @@ export default function Home() {
       <HowItWorks />
       <MarketOverview />
       <FAQ />
+      <FinalCTA />
 
       <main className="py-12">
         <Container className="space-y-16">
@@ -215,7 +217,7 @@ export default function Home() {
               <p className="text-sm text-[var(--text-secondary)]">Subtle dark backgrounds with optional hover states</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6" id="contact">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <Card hoverable>
                 <CardHeader>
                   <div className="flex items-center justify-between">
