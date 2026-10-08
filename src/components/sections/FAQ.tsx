@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { Container } from "@/components/ui/container";
+import { ChevronDown } from "lucide-react";
 
 interface FAQItem {
   question: string;
@@ -91,22 +92,12 @@ export function FAQ() {
                     >
                       <span className="leading-snug">{item.question}</span>
                       <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-secondary)] text-[var(--text-secondary)]">
-                        <svg
+                        <ChevronDown
                           className={`h-4 w-4 transition-transform duration-200 motion-reduce:transition-none ${
                             isOpen ? "rotate-180 text-[var(--accent)]" : ""
                           }`}
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          strokeWidth="2"
                           aria-hidden="true"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M19 9l-7 7-7-7"
-                          />
-                        </svg>
+                        />
                       </span>
                     </button>
                   </h3>

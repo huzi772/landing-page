@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
+import { Menu, X } from "lucide-react";
 
 const NAV_ITEMS = [
   { label: "Services", href: "#services" },
@@ -93,29 +94,11 @@ export function Navbar() {
             aria-controls="mobile-menu"
             aria-label={isOpen ? "Close main menu" : "Open main menu"}
           >
-            <svg
-              className="h-5 w-5 transition-transform duration-200"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              {isOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              )}
-            </svg>
+            {isOpen ? (
+              <X className="h-5 w-5 text-[var(--text-primary)] transition-transform duration-200" aria-hidden="true" />
+            ) : (
+              <Menu className="h-5 w-5 text-[var(--text-primary)] transition-transform duration-200" aria-hidden="true" />
+            )}
           </button>
         </div>
       </Container>
