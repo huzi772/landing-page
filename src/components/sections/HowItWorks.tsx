@@ -92,59 +92,58 @@ export function HowItWorks() {
           </p>
         </div>
 
-        {/* Timeline Journey */}
-        <div className="relative mt-12 md:mt-16">
-          {/* Desktop Horizontal Connecting Line */}
+        {/* Open Timeline Journey (No Card Containers) */}
+        <div className="relative mt-14 md:mt-20">
+          {/* Desktop Horizontal Connecting Progression Line */}
           <div
-            className={`hidden lg:block absolute top-12 left-[16%] right-[16%] h-0.5 bg-gradient-to-r from-[var(--border)] via-[var(--accent)]/50 to-[var(--border)] z-0 transition-opacity duration-1000 delay-500 ${
+            className={`hidden lg:block absolute top-[21px] left-[15%] right-[15%] h-0.5 bg-gradient-to-r from-[var(--border-subtle)] via-[var(--accent)]/50 to-[var(--border-subtle)] z-0 transition-opacity duration-1000 delay-500 ${
               isVisible ? "opacity-100" : "opacity-0"
             }`}
             aria-hidden="true"
           />
 
-          {/* Mobile Vertical Connecting Line */}
+          {/* Mobile Vertical Connecting Progression Line */}
           <div
-            className={`block lg:hidden absolute top-8 bottom-8 left-6 w-0.5 bg-gradient-to-b from-[var(--accent)]/50 via-[var(--border)] to-transparent z-0 transition-opacity duration-1000 delay-500 ${
+            className={`block lg:hidden absolute top-6 bottom-6 left-[21px] w-0.5 bg-gradient-to-b from-[var(--accent)]/50 via-[var(--border-subtle)] to-[var(--border-subtle)] z-0 transition-opacity duration-1000 delay-500 ${
               isVisible ? "opacity-100" : "opacity-0"
             }`}
             aria-hidden="true"
           />
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10 relative z-10">
+          {/* Open Desktop & Mobile Timeline Steps */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-12 relative z-10">
             {PROCESS_STEPS.map((step, index) => {
               const Icon = step.icon;
               return (
                 <div
                   key={step.number}
                   style={{ transitionDelay: `${index * 150 + 200}ms` }}
-                  className={`group flex flex-col items-start p-6 sm:p-8 rounded-xl bg-[var(--bg-secondary)]/60 border border-[var(--border)] transition-all duration-300 hover:border-[var(--border-subtle)] hover:bg-slate-800/30 ${
+                  className={`group flex flex-row lg:flex-col items-start gap-5 lg:gap-6 transition-all duration-300 ${
                     isVisible ? "reveal-visible" : "reveal-hidden"
                   }`}
                 >
-                  {/* Step Header with Icon & Badge */}
-                  <div className="flex items-center justify-between w-full mb-6">
-                    <div className="flex items-center gap-3">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] group-hover:border-[var(--accent)]/50 transition-colors duration-200">
-                        <Icon className="h-5 w-5 text-[var(--accent)] group-hover:scale-105 transition-transform duration-200" />
-                      </div>
-                      <span className="font-mono text-sm font-bold tracking-widest text-[var(--accent)]">
+                  {/* Timeline Node Marker */}
+                  <div className="relative flex items-center justify-center shrink-0">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[var(--bg-primary)] border-2 border-[var(--border-subtle)] group-hover:border-[var(--accent)] transition-colors duration-300 shadow-md">
+                      <span className="font-mono text-xs font-bold text-[var(--accent)]">
                         {step.number}
                       </span>
                     </div>
-
-                    <span className="text-xs font-mono font-semibold text-[var(--gold)]/80 tracking-wider">
-                      STEP {step.number}
-                    </span>
                   </div>
 
-                  {/* Title & Description */}
-                  <h3 className="text-xl sm:text-2xl font-bold text-slate-100 tracking-tight mb-2 transition-colors duration-200">
-                    {step.title}
-                  </h3>
+                  {/* Step Content */}
+                  <div className="flex-1 space-y-2">
+                    <div className="flex items-center gap-2.5">
+                      <Icon className="h-4 w-4 text-[var(--text-muted)] group-hover:text-[var(--accent)] group-hover:scale-110 transition-all duration-200 shrink-0" />
+                      <h3 className="text-xl sm:text-2xl font-bold text-slate-100 tracking-tight transition-colors duration-200">
+                        {step.title}
+                      </h3>
+                    </div>
 
-                  <p className="text-sm sm:text-base text-[var(--text-secondary)] leading-relaxed font-normal">
-                    {step.description}
-                  </p>
+                    <p className="text-sm sm:text-base text-[var(--text-secondary)] leading-relaxed font-normal">
+                      {step.description}
+                    </p>
+                  </div>
                 </div>
               );
             })}
