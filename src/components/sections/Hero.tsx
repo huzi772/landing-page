@@ -21,7 +21,7 @@ export function Hero() {
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
 
-    // Restrained max tilt angle (max 3 degrees)
+    // Restrained max tilt angle (max 2.5 degrees)
     const rotateX = ((y - centerY) / centerY) * -2.5;
     const rotateY = ((x - centerX) / centerX) * 2.5;
 
@@ -123,7 +123,7 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Right Visual Column — Abstract Financial Market Visual */}
+          {/* Right Visual Column — Abstract Cinematic Financial Visual */}
           <div
             className="animate-hero-visual-reveal flex items-center justify-center lg:col-span-5 w-full mt-4 lg:mt-0"
             onMouseMove={handleMouseMove}
@@ -131,137 +131,102 @@ export function Hero() {
           >
             <div
               ref={visualRef}
-              className="relative w-full max-w-lg rounded-2xl border border-[var(--border-subtle)] bg-gradient-to-b from-[var(--bg-card)] to-[var(--bg-secondary)] p-6 md:p-8 shadow-2xl transition-transform duration-200 ease-out overflow-hidden group"
+              className="relative w-full max-w-lg aspect-[4/3] rounded-2xl border border-[var(--border-subtle)] bg-gradient-to-b from-[var(--bg-card)]/90 via-[var(--bg-secondary)]/80 to-[var(--bg-primary)] p-6 md:p-8 shadow-2xl transition-transform duration-300 ease-out overflow-hidden flex flex-col justify-between"
               style={{ transformStyle: "preserve-3d" }}
               aria-hidden="true"
             >
-              {/* Subtle background ambient panel highlight */}
-              <div className="absolute -top-20 -right-20 h-56 w-56 rounded-full bg-[var(--accent)]/15 blur-2xl pointer-events-none" />
-              <div className="absolute -bottom-20 -left-20 h-56 w-56 rounded-full bg-[var(--gold)]/10 blur-2xl pointer-events-none" />
+              {/* Subtle background ambient atmospheric glows */}
+              <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-[var(--accent)]/15 blur-3xl pointer-events-none" />
+              <div className="absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-[var(--gold)]/10 blur-3xl pointer-events-none" />
 
-              {/* Grid pattern background overlay */}
-              <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:1.5rem_1.5rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
+              {/* Minimal Grid & Radial Masking overlay */}
+              <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:2rem_2rem] [mask-image:radial-gradient(ellipse_75%_75%_at_50%_50%,#000_60%,transparent_100%)] pointer-events-none" />
 
-              {/* Header visual framing elements */}
-              <div className="relative flex items-center justify-between pb-6 mb-6 border-b border-[var(--border)]">
+              {/* Top ambient accent dot framing */}
+              <div className="relative z-10 flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <div className="h-2.5 w-2.5 rounded-full bg-[var(--accent)]/80" />
-                  <div className="h-2.5 w-2.5 rounded-full bg-[var(--gold)]/80" />
-                  <div className="h-2.5 w-2.5 rounded-full bg-[var(--border-subtle)]" />
+                  <span className="h-2 w-2 rounded-full bg-[var(--accent)]/80 shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-[var(--gold)]/60" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-[var(--border-subtle)]" />
                 </div>
-                <div className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[var(--accent)]" />
-                  <span className="text-[11px] font-mono tracking-wider text-[var(--text-muted)] uppercase">
-                    SYSTEM ARCHITECTURE
-                  </span>
-                </div>
+                <div className="h-px w-20 bg-gradient-to-r from-transparent via-[var(--border-subtle)] to-transparent" />
               </div>
 
-              {/* Main SVG Abstract Financial Geometry Canvas */}
-              <div className="relative h-52 sm:h-60 w-full rounded-xl bg-[var(--bg-primary)]/60 border border-[var(--border)] backdrop-blur-sm p-4 overflow-hidden flex flex-col justify-between">
-                {/* SVG Curves and Rays */}
+              {/* Core Abstract Financial Flow Canvas (Raw Vector Artwork) */}
+              <div className="relative my-auto h-48 sm:h-56 w-full flex items-center justify-center">
                 <svg
                   className="absolute inset-0 h-full w-full overflow-visible"
-                  viewBox="0 0 400 200"
+                  viewBox="0 0 400 220"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                   preserveAspectRatio="none"
                 >
                   <defs>
-                    <linearGradient id="emeraldGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="#10b981" stopOpacity="0.2" />
-                      <stop offset="50%" stopColor="#10b981" stopOpacity="0.9" />
-                      <stop offset="100%" stopColor="#34d399" stopOpacity="0.4" />
+                    <linearGradient id="emeraldFlow" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#10b981" stopOpacity="0.1" />
+                      <stop offset="40%" stopColor="#10b981" stopOpacity="0.9" />
+                      <stop offset="80%" stopColor="#34d399" stopOpacity="0.7" />
+                      <stop offset="100%" stopColor="#059669" stopOpacity="0.3" />
                     </linearGradient>
-                    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="#f59e0b" stopOpacity="0.1" />
-                      <stop offset="80%" stopColor="#f59e0b" stopOpacity="0.6" />
-                      <stop offset="100%" stopColor="#fbbf24" stopOpacity="0.2" />
+
+                    <linearGradient id="goldFlow" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#f59e0b" stopOpacity="0.05" />
+                      <stop offset="65%" stopColor="#f59e0b" stopOpacity="0.6" />
+                      <stop offset="100%" stopColor="#fbbf24" stopOpacity="0.15" />
                     </linearGradient>
-                    <linearGradient id="fillArea" x1="0%" y1="0%" x2="0%" y2="100%">
-                      <stop offset="0%" stopColor="#10b981" stopOpacity="0.15" />
+
+                    <linearGradient id="glowArea" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stopColor="#10b981" stopOpacity="0.12" />
                       <stop offset="100%" stopColor="#10b981" stopOpacity="0.0" />
                     </linearGradient>
                   </defs>
 
-                  {/* Horizontal visual reference lines */}
-                  <line x1="0" y1="50" x2="400" y2="50" stroke="#1e293b" strokeDasharray="3 3" strokeWidth="1" />
-                  <line x1="0" y1="100" x2="400" y2="100" stroke="#1e293b" strokeDasharray="3 3" strokeWidth="1" />
-                  <line x1="0" y1="150" x2="400" y2="150" stroke="#1e293b" strokeDasharray="3 3" strokeWidth="1" />
+                  {/* Atmospheric Grid Reference Lines */}
+                  <line x1="0" y1="55" x2="400" y2="55" stroke="rgba(255,255,255,0.04)" strokeDasharray="4 4" />
+                  <line x1="0" y1="110" x2="400" y2="110" stroke="rgba(255,255,255,0.04)" strokeDasharray="4 4" />
+                  <line x1="0" y1="165" x2="400" y2="165" stroke="rgba(255,255,255,0.04)" strokeDasharray="4 4" />
 
-                  {/* Area fill beneath primary curve */}
+                  {/* Translucent gradient fill beneath flow curve */}
                   <path
-                    d="M 0 160 Q 90 140, 150 110 T 270 80 T 400 30 L 400 200 L 0 200 Z"
-                    fill="url(#fillArea)"
+                    d="M 0 170 Q 100 150, 160 115 T 280 85 T 400 35 L 400 220 L 0 220 Z"
+                    fill="url(#glowArea)"
                   />
 
-                  {/* Gold accent line */}
+                  {/* Secondary Champagne/Gold Accent Curve */}
                   <path
-                    d="M 0 175 Q 110 160, 180 130 T 310 95 T 400 60"
-                    stroke="url(#goldGradient)"
+                    d="M 0 185 Q 120 170, 190 135 T 320 95 T 400 55"
+                    stroke="url(#goldFlow)"
                     strokeWidth="1.5"
-                    strokeDasharray="4 4"
+                    strokeDasharray="3 3"
                     fill="none"
                   />
 
-                  {/* Main Emerald Animated Line */}
+                  {/* Primary Emerald Fluid Vector Curve */}
                   <path
-                    d="M 0 160 Q 90 140, 150 110 T 270 80 T 400 30"
-                    stroke="url(#emeraldGradient)"
+                    d="M 0 170 Q 100 150, 160 115 T 280 85 T 400 35"
+                    stroke="url(#emeraldFlow)"
                     strokeWidth="2.5"
+                    strokeLinecap="round"
                     fill="none"
                     className="animate-draw-path"
                   />
 
-                  {/* Abstract Node Data Points */}
-                  <circle cx="150" cy="110" r="4" fill="#10b981" className="animate-pulse" />
-                  <circle cx="150" cy="110" r="8" stroke="#10b981" strokeOpacity="0.4" fill="none" />
+                  {/* Abstract Focal Node Points */}
+                  <circle cx="160" cy="115" r="3.5" fill="#10b981" className="animate-pulse" />
+                  <circle cx="160" cy="115" r="7.5" stroke="#10b981" strokeOpacity="0.35" fill="none" />
 
-                  <circle cx="270" cy="80" r="4" fill="#f59e0b" />
-                  <circle cx="270" cy="80" r="7" stroke="#f59e0b" strokeOpacity="0.3" fill="none" />
+                  <circle cx="280" cy="85" r="3.5" fill="#f59e0b" />
+                  <circle cx="280" cy="85" r="6.5" stroke="#f59e0b" strokeOpacity="0.25" fill="none" />
 
-                  <circle cx="370" cy="38" r="4" fill="#34d399" className="animate-pulse" />
+                  <circle cx="365" cy="45" r="3" fill="#34d399" className="animate-pulse" />
+                  <circle cx="365" cy="45" r="8" stroke="#34d399" strokeOpacity="0.2" fill="none" />
                 </svg>
-
-                {/* Layered Glassmorphic Info Badge Overlay (Left Top) */}
-                <div className="relative z-10 self-start rounded-md border border-[var(--border-subtle)] bg-[var(--bg-card)]/90 backdrop-blur-md px-3 py-1.5 shadow-md">
-                  <span className="text-[10px] font-mono tracking-wider text-[var(--text-muted)] uppercase block">
-                    ANALYTICAL FRAMEWORK
-                  </span>
-                  <span className="text-xs font-medium text-[var(--text-primary)]">
-                    Structured Analysis
-                  </span>
-                </div>
-
-                {/* Layered Glassmorphic Info Badge Overlay (Right Bottom) */}
-                <div className="relative z-10 self-end rounded-md border border-[var(--border-subtle)] bg-[var(--bg-card)]/90 backdrop-blur-md px-3 py-1.5 shadow-md">
-                  <span className="text-[10px] font-mono tracking-wider text-[var(--gold)] uppercase block">
-                    RISK CONTROL
-                  </span>
-                  <span className="text-xs font-medium text-[var(--text-primary)]">
-                    Disciplined Parameters
-                  </span>
-                </div>
               </div>
 
-              {/* Bottom Translucent Info Panel */}
-              <div className="mt-4 grid grid-cols-2 gap-3">
-                <div className="rounded-lg border border-[var(--border)] bg-[var(--bg-secondary)]/80 p-3 backdrop-blur-sm">
-                  <span className="text-[10px] font-mono tracking-wider text-[var(--text-muted)] uppercase block">
-                    EXECUTION MODEL
-                  </span>
-                  <span className="text-xs font-semibold text-[var(--text-primary)] mt-0.5 block">
-                    Systematic Approach
-                  </span>
-                </div>
-                <div className="rounded-lg border border-[var(--border)] bg-[var(--bg-secondary)]/80 p-3 backdrop-blur-sm">
-                  <span className="text-[10px] font-mono tracking-wider text-[var(--text-muted)] uppercase block">
-                    MARKET FOCUS
-                  </span>
-                  <span className="text-xs font-semibold text-[var(--accent)] mt-0.5 block">
-                    Clear Methodology
-                  </span>
-                </div>
+              {/* Bottom Subtle Ambient Accent Line */}
+              <div className="relative z-10 flex items-center justify-between pt-4 border-t border-[var(--border)]/60">
+                <div className="h-1 w-12 rounded-full bg-gradient-to-r from-[var(--accent)] to-transparent opacity-80" />
+                <div className="h-1 w-1 rounded-full bg-[var(--gold)]/50" />
               </div>
             </div>
           </div>
