@@ -159,6 +159,18 @@ body {
 .delay-500 { animation-delay: 500ms; }
 .delay-600 { animation-delay: 600ms; }
 
+/* Scroll reveal helper classes */
+.reveal-hidden {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* Respect prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -184,5 +196,11 @@ body {
 
   .animate-ambient-pulse {
     animation: none !important;
+  }
+
+  .reveal-hidden {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
 }
