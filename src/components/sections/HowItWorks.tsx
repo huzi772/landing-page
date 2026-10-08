@@ -1,11 +1,13 @@
 import React from "react";
 import { Container } from "@/components/ui/container";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { Search, MessageCircle, ArrowRight, LucideIcon } from "lucide-react";
 
 interface ProcessStep {
   number: string;
   title: string;
   description: string;
+  icon: LucideIcon;
 }
 
 const PROCESS_STEPS: ProcessStep[] = [
@@ -14,18 +16,21 @@ const PROCESS_STEPS: ProcessStep[] = [
     title: "Explore",
     description:
       "Review the available trading solutions and understand which approach may be relevant to your needs.",
+    icon: Search,
   },
   {
     number: "02",
     title: "Connect",
     description:
       "Get in touch to discuss your requirements, questions, and the type of support you are looking for.",
+    icon: MessageCircle,
   },
   {
     number: "03",
     title: "Move Forward",
     description:
       "After discussing your needs, receive clear information about the next steps and available options.",
+    icon: ArrowRight,
   },
 ];
 
@@ -59,32 +64,40 @@ export function HowItWorks() {
           />
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 relative z-10">
-            {PROCESS_STEPS.map((step) => (
-              <Card
-                key={step.number}
-                hoverable
-                className="flex flex-col justify-between h-full bg-[var(--bg-card)] border-[var(--border)] transition-all duration-200"
-              >
-                <CardHeader className="mb-2">
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="flex h-10 w-10 items-center justify-center font-mono text-sm font-bold rounded-full bg-[var(--bg-secondary)] text-[var(--accent)] border border-[var(--border-subtle)] shadow-sm">
-                      {step.number}
-                    </span>
-                    <span className="text-xs font-semibold text-[var(--gold)]">
-                      STEP {step.number}
-                    </span>
-                  </div>
-                  <CardTitle className="text-xl font-bold text-[var(--text-primary)]">
-                    {step.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
-                    {step.description}
-                  </p>
-                </CardContent>
-              </Card>
-            ))}
+            {PROCESS_STEPS.map((step) => {
+              const Icon = step.icon;
+              return (
+                <Card
+                  key={step.number}
+                  hoverable
+                  className="flex flex-col justify-between h-full bg-[var(--bg-card)] border-[var(--border)] transition-all duration-200"
+                >
+                  <CardHeader className="mb-2">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center gap-3">
+                        <span className="flex h-10 w-10 items-center justify-center font-mono text-sm font-bold rounded-full bg-[var(--bg-secondary)] text-[var(--accent)] border border-[var(--border-subtle)] shadow-sm">
+                          {step.number}
+                        </span>
+                        <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[var(--accent-muted)] text-[var(--accent)] border border-[var(--accent)]/20">
+                          <Icon className="h-4 w-4" aria-hidden="true" />
+                        </div>
+                      </div>
+                      <span className="text-xs font-semibold text-[var(--gold)]">
+                        STEP {step.number}
+                      </span>
+                    </div>
+                    <CardTitle className="text-xl font-bold text-[var(--text-primary)]">
+                      {step.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
+                      {step.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </Container>

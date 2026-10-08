@@ -1,5 +1,6 @@
 import React from "react";
 import { Container } from "@/components/ui/container";
+import { ArrowUp } from "lucide-react";
 
 const NAV_LINKS = [
   { label: "Services", href: "#services" },
@@ -80,16 +81,7 @@ export function Footer() {
             className="inline-flex items-center gap-1.5 hover:text-[var(--text-primary)] transition-colors py-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] rounded-sm"
           >
             <span>Back to top</span>
-            <svg
-              className="h-3.5 w-3.5 fill-none stroke-current"
-              viewBox="0 0 24 24"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <path d="M18 15l-6-6-6 6" />
-            </svg>
+            <ArrowUp className="h-3.5 w-3.5 stroke-current" aria-hidden="true" />
           </a>
         </div>
       </Container>
