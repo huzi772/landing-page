@@ -4,6 +4,7 @@ import { ValueProposition } from "@/components/sections/ValueProposition";
 import { Services } from "@/components/sections/Services";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { MarketOverview } from "@/components/sections/MarketOverview";
+import { FAQ } from "@/components/sections/FAQ";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import {
@@ -37,6 +38,7 @@ export default function Home() {
       <Services />
       <HowItWorks />
       <MarketOverview />
+      <FAQ />
 
       <main className="py-12">
         <Container className="space-y-16">
