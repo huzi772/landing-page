@@ -2,6 +2,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Hero } from "@/components/sections/Hero";
 import { ValueProposition } from "@/components/sections/ValueProposition";
 import { Services } from "@/components/sections/Services";
+import { HowItWorks } from "@/components/sections/HowItWorks";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import {
@@ -33,6 +34,7 @@ export default function Home() {
       <Hero />
       <ValueProposition />
       <Services />
+      <HowItWorks />
 
       <main className="py-12">
         <Container className="space-y-16">
