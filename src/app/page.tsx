@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Hero } from "@/components/sections/Hero";
 import { ValueProposition } from "@/components/sections/ValueProposition";
+import { Services } from "@/components/sections/Services";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import {
@@ -31,6 +32,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <ValueProposition />
+      <Services />
 
       <main className="py-12">
         <Container className="space-y-16">
@@ -201,7 +203,7 @@ export default function Home() {
           </section>
 
           {/* 4. Card Foundation */}
-          <section className="space-y-6" id="services">
+          <section className="space-y-6">
             <div className="border-l-2 border-[var(--accent)] pl-4">
               <h3 className="text-2xl font-semibold tracking-tight">4. Card Components</h3>
               <p className="text-sm text-[var(--text-secondary)]">Subtle dark backgrounds with optional hover states</p>
