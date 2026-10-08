@@ -6,6 +6,7 @@ import { HowItWorks } from "@/components/sections/HowItWorks";
 import { MarketOverview } from "@/components/sections/MarketOverview";
 import { FAQ } from "@/components/sections/FAQ";
 import { FinalCTA } from "@/components/sections/FinalCTA";
+import { Footer } from "@/components/layout/Footer";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import {
@@ -41,6 +42,7 @@ export default function Home() {
       <MarketOverview />
       <FAQ />
       <FinalCTA />
+      <Footer />
 
       <main className="py-12">
         <Container className="space-y-16">
