@@ -34,7 +34,7 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-[var(--bg-primary)] pt-20 pb-16 md:pt-28 md:pb-24 lg:pt-32 lg:pb-28 border-b border-[var(--border)]">
+    <section className="relative overflow-hidden bg-[var(--bg-primary)] pt-12 pb-12 md:pt-16 md:pb-16 lg:pt-20 lg:pb-20 border-b border-[var(--border)]">
       {/* Background ambient lighting accents */}
       <div
         className="pointer-events-none absolute -top-32 right-1/4 -z-10 h-[500px] w-[500px] rounded-full bg-[var(--accent)]/10 blur-[120px] animate-ambient-pulse"
@@ -46,11 +46,11 @@ export function Hero() {
       />
 
       <Container>
-        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8">
+        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-8">
           {/* Left Content Column */}
           <div className="flex flex-col items-start lg:col-span-7">
             {/* Eyebrow Badge */}
-            <div className="animate-hero-fade-up delay-100 mb-5 inline-flex items-center gap-2.5 rounded-full border border-[var(--border-subtle)] bg-[var(--bg-card)]/80 backdrop-blur-md px-4 py-1.5 text-xs font-semibold tracking-wider text-[var(--accent)] shadow-sm">
+            <div className="animate-hero-fade-up delay-100 mb-4 inline-flex items-center gap-2.5 rounded-full border border-[var(--border-subtle)] bg-[var(--bg-card)]/80 backdrop-blur-md px-4 py-1.5 text-xs font-semibold tracking-wider text-[var(--accent)] shadow-sm">
               <span className="h-2 w-2 rounded-full bg-[var(--accent)] animate-pulse" />
               <span>STRUCTURED TRADING SOLUTIONS</span>
             </div>
@@ -64,12 +64,12 @@ export function Hero() {
             </h1>
 
             {/* Supporting Paragraph */}
-            <p className="animate-hero-fade-up delay-300 mt-5 text-base sm:text-lg md:text-xl text-[var(--text-secondary)] leading-relaxed max-w-2xl font-normal">
+            <p className="animate-hero-fade-up delay-300 mt-4 text-base sm:text-lg md:text-xl text-[var(--text-secondary)] leading-relaxed max-w-2xl font-normal">
               Professional trading solutions designed around a structured process, clear communication, and a disciplined approach to the market.
             </p>
 
             {/* CTA Buttons */}
-            <div className="animate-hero-fade-up delay-400 mt-8 flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+            <div className="animate-hero-fade-up delay-400 mt-7 flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
               <Button
                 variant="primary"
                 size="lg"
@@ -95,13 +95,13 @@ export function Hero() {
             </div>
 
             {/* Trust / Value Indicators */}
-            <div className="animate-hero-fade-up delay-500 mt-12 pt-8 border-t border-[var(--border)] w-full grid grid-cols-1 sm:grid-cols-3 gap-6 text-left">
+            <div className="animate-hero-fade-up delay-500 mt-9 pt-6 border-t border-[var(--border)] w-full grid grid-cols-1 sm:grid-cols-3 gap-5 text-left">
               <div className="flex flex-col space-y-1">
                 <p className="text-sm font-semibold text-[var(--text-primary)]">
                   Structured Methodology
                 </p>
                 <p className="text-xs text-[var(--text-muted)] leading-relaxed">
-                  Disciplined execution framework
+                  Clear and organized approach
                 </p>
               </div>
               <div className="flex flex-col space-y-1">
@@ -109,7 +109,7 @@ export function Hero() {
                   Transparent Process
                 </p>
                 <p className="text-xs text-[var(--text-muted)] leading-relaxed">
-                  Clear analytical guidelines
+                  Clear communication throughout
                 </p>
               </div>
               <div className="flex flex-col space-y-1">
@@ -117,7 +117,7 @@ export function Hero() {
                   Dedicated Support
                 </p>
                 <p className="text-xs text-[var(--text-muted)] leading-relaxed">
-                  Active team assistance
+                  Support when you need it
                 </p>
               </div>
             </div>
@@ -125,7 +125,7 @@ export function Hero() {
 
           {/* Right Visual Column — Abstract Cinematic Financial Visual */}
           <div
-            className="animate-hero-visual-reveal flex items-center justify-center lg:col-span-5 w-full mt-4 lg:mt-0"
+            className="animate-hero-visual-reveal flex items-center justify-center lg:col-span-5 w-full mt-2 lg:mt-0"
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
           >
