@@ -80,6 +80,15 @@ body {
   line-height: 1.5;
   min-height: 100vh;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Global Heading Typography Defaults */
+h1, h2, h3, h4, h5, h6 {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 /* Focus-visible global accessibility */
