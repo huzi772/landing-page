@@ -61,7 +61,7 @@ export function Services() {
     <section
       ref={sectionRef}
       id="services"
-      className="py-12 md:py-16 lg:py-20 bg-[var(--bg-secondary)] border-b border-[var(--border)] scroll-mt-16 relative overflow-hidden"
+      className="py-12 md:py-16 lg:py-20 bg-[var(--bg-secondary)] border-b border-[var(--border)] scroll-mt-20 relative overflow-hidden"
     >
       {/* Decorative restrained abstract background geometry */}
       <div

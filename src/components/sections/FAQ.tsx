@@ -62,7 +62,7 @@ export function FAQ() {
   return (
     <section
       id="faq"
-      className="py-16 sm:py-20 md:py-24 bg-[var(--bg-primary)] border-b border-[var(--border)] scroll-mt-16 relative overflow-hidden"
+      className="py-16 sm:py-20 md:py-24 bg-[var(--bg-primary)] border-b border-[var(--border)] scroll-mt-20 relative overflow-hidden"
     >
       <Container>
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16 items-start">

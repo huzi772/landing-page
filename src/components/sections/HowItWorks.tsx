@@ -61,7 +61,7 @@ export function HowItWorks() {
     <section
       ref={sectionRef}
       id="how-it-works"
-      className="py-12 md:py-16 lg:py-20 bg-[var(--bg-primary)] border-b border-[var(--border)] scroll-mt-16 relative overflow-hidden"
+      className="py-12 md:py-16 lg:py-20 bg-[var(--bg-primary)] border-b border-[var(--border)] scroll-mt-20 relative overflow-hidden"
     >
       <Container>
         {/* Section Header */}

@@ -38,7 +38,7 @@ export function FinalCTA() {
     <section
       ref={sectionRef}
       id="contact"
-      className="py-20 sm:py-24 md:py-32 bg-[var(--bg-primary)] border-b border-[var(--border)] scroll-mt-16 relative overflow-hidden text-center"
+      className="py-20 sm:py-24 md:py-32 bg-[var(--bg-primary)] border-b border-[var(--border)] scroll-mt-20 relative overflow-hidden text-center"
     >
       {/* Decorative Top Accent Divider */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-[1px] bg-gradient-to-r from-transparent via-[var(--accent)]/50 to-transparent" />

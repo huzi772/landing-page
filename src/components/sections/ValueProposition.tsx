@@ -58,7 +58,7 @@ export function ValueProposition() {
     <section
       ref={sectionRef}
       id="why-us"
-      className="py-12 md:py-16 lg:py-20 bg-[var(--bg-primary)] border-b border-[var(--border)] scroll-mt-16 relative overflow-hidden"
+      className="py-12 md:py-16 lg:py-20 bg-[var(--bg-primary)] border-b border-[var(--border)] scroll-mt-20 relative overflow-hidden"
     >
       {/* Subtle atmospheric background accent */}
       <div
