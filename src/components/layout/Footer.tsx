@@ -18,7 +18,7 @@ export function Footer() {
           {/* Column 1: Brand & Description */}
           <div className="md:col-span-6 lg:col-span-5 space-y-4">
             <a
-              href="#"
+              href="#top"
               className="inline-flex items-center gap-2 font-bold text-lg tracking-tight text-[var(--text-primary)] hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] rounded-sm"
             >
               <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[var(--accent)] text-slate-950 font-extrabold text-sm">
@@ -77,7 +77,7 @@ export function Footer() {
           <p>© 2026 BRAND NAME. All rights reserved.</p>
 
           <a
-            href="#"
+            href="#top"
             className="inline-flex items-center gap-1.5 hover:text-[var(--text-primary)] transition-colors py-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] rounded-sm"
           >
             <span>Back to top</span>

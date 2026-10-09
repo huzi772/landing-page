@@ -14,6 +14,42 @@ const NAV_ITEMS = [
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("");
+
+  // Lightweight Active Section Observer
+  useEffect(() => {
+    const sectionIds = ["services", "how-it-works", "why-us", "faq"];
+    const sectionElements = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => el !== null);
+
+    if (sectionElements.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        // Find visible sections
+        const visibleEntries = entries.filter((entry) => entry.isIntersecting);
+        if (visibleEntries.length > 0) {
+          // Sort by intersection ratio or proximity to top
+          const topMost = visibleEntries.reduce((prev, curr) =>
+            curr.intersectionRatio > prev.intersectionRatio ? curr : prev
+          );
+          setActiveSection(`#${topMost.target.id}`);
+        }
+      },
+      {
+        rootMargin: "-20% 0px -60% 0px",
+        threshold: [0.1, 0.3, 0.5],
+      }
+    );
+
+    sectionElements.forEach((el) => observer.observe(el));
+
+    return () => {
+      sectionElements.forEach((el) => observer.unobserve(el));
+      observer.disconnect();
+    };
+  }, []);
 
   // Close mobile menu on Escape key press
   useEffect(() => {
@@ -31,10 +67,10 @@ export function Navbar() {
     if (isOpen) {
       document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = "";
     }
     return () => {
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = "";
     };
   }, [isOpen]);
 
@@ -47,7 +83,7 @@ export function Navbar() {
         <div className="flex h-16 items-center justify-between">
           {/* Brand Logo Placeholder */}
           <a
-            href="#"
+            href="#top"
             className="flex items-center gap-2 font-bold text-lg tracking-tight text-[var(--text-primary)] hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] rounded-sm"
           >
             <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[var(--accent)] text-slate-950 font-extrabold text-sm">
@@ -60,15 +96,28 @@ export function Navbar() {
 
           {/* Desktop Navigation Links */}
           <nav className="hidden md:flex items-center gap-8" aria-label="Main Navigation">
-            {NAV_ITEMS.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] rounded-sm"
-              >
-                {item.label}
-              </a>
-            ))}
+            {NAV_ITEMS.map((item) => {
+              const isActive = activeSection === item.href;
+              return (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  className={`relative text-sm font-medium transition-colors py-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] rounded-sm flex items-center gap-1.5 ${
+                    isActive
+                      ? "text-[var(--accent)] font-semibold"
+                      : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
+                  }`}
+                >
+                  {isActive && (
+                    <span
+                      className="h-1.5 w-1.5 rounded-full bg-[var(--accent)] inline-block shrink-0"
+                      aria-hidden="true"
+                    />
+                  )}
+                  <span>{item.label}</span>
+                </a>
+              );
+            })}
           </nav>
 
           {/* Desktop CTA Button */}
@@ -103,40 +152,60 @@ export function Navbar() {
         </div>
       </Container>
 
-      {/* Mobile Overlay & Navigation Drawer */}
+      {/* Mobile Backdrop & Navigation Drawer */}
       {isOpen && (
-        <div
-          id="mobile-menu"
-          className="md:hidden border-b border-[var(--border)] bg-[var(--bg-secondary)] px-4 py-6 shadow-xl transition-all duration-200 animate-in slide-in-from-top-2"
-        >
-          <Container className="space-y-6">
-            <nav className="flex flex-col space-y-4" aria-label="Mobile Navigation">
-              {NAV_ITEMS.map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  onClick={closeMenu}
-                  className="text-base font-medium text-[var(--text-primary)] hover:text-[var(--accent)] transition-colors py-1.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] rounded-sm"
+        <div className="fixed inset-x-0 top-16 bottom-0 z-40 md:hidden flex flex-col">
+          {/* Restrained Backdrop Overlay */}
+          <div
+            className="fixed inset-0 top-16 bg-slate-950/60 backdrop-blur-sm transition-opacity"
+            onClick={closeMenu}
+            aria-hidden="true"
+          />
+
+          {/* Menu Drawer Content */}
+          <div
+            id="mobile-menu"
+            className="relative z-50 border-b border-[var(--border)] bg-[var(--bg-secondary)] px-4 py-6 shadow-2xl transition-all duration-200"
+          >
+            <Container className="space-y-6">
+              <nav className="flex flex-col space-y-3" aria-label="Mobile Navigation">
+                {NAV_ITEMS.map((item) => {
+                  const isActive = activeSection === item.href;
+                  return (
+                    <a
+                      key={item.label}
+                      href={item.href}
+                      onClick={closeMenu}
+                      className={`flex items-center gap-2 text-base font-medium py-2 px-3 rounded-lg transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] ${
+                        isActive
+                          ? "bg-[var(--accent-muted)] text-[var(--accent)] font-semibold"
+                          : "text-[var(--text-primary)] hover:bg-[var(--bg-card-hover)]"
+                      }`}
+                    >
+                      {isActive && (
+                        <span className="h-2 w-2 rounded-full bg-[var(--accent)]" aria-hidden="true" />
+                      )}
+                      <span>{item.label}</span>
+                    </a>
+                  );
+                })}
+              </nav>
+              <div className="pt-4 border-t border-[var(--border)]">
+                <Button
+                  variant="primary"
+                  size="md"
+                  className="w-full"
+                  onClick={() => {
+                    closeMenu();
+                    const el = document.querySelector("#contact");
+                    if (el) el.scrollIntoView({ behavior: "smooth" });
+                  }}
                 >
-                  {item.label}
-                </a>
-              ))}
-            </nav>
-            <div className="pt-4 border-t border-[var(--border)]">
-              <Button
-                variant="primary"
-                size="md"
-                className="w-full"
-                onClick={() => {
-                  closeMenu();
-                  const el = document.querySelector("#contact");
-                  if (el) el.scrollIntoView({ behavior: "smooth" });
-                }}
-              >
-                Get Started
-              </Button>
-            </div>
-          </Container>
+                  Get Started
+                </Button>
+              </div>
+            </Container>
+          </div>
         </div>
       )}
     </header>
